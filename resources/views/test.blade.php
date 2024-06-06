@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="'Test Title'">
     <div class="container px-6 mx-auto grid">
         <x-heading>Dashboard</x-heading>
         <x-forms.field>
