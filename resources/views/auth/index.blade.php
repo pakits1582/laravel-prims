@@ -36,7 +36,7 @@
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <input type="password" id="password" name="password" required
                             class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
-                        <x-forms.error name="idno"></x-forms.error>
+                        <x-forms.error name="password"></x-forms.error>
                     </div>
                     <div class="flex items-center justify-between mb-6">
                         <a href="" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your

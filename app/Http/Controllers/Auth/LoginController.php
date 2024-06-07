@@ -28,10 +28,11 @@ class LoginController extends Controller
         $credentials = $request->only('idno', 'password');
         if (Auth::attempt($credentials + ['status' => 1])) {
             $request->session()->regenerate();
+
             return redirect()->intended('home');
         }
 
-        return back()->with(['alert-class' => 'alert-danger', 'message' => 'Sorry we didn\'t recognized your login details. Please check idno and password and try again!'])->withInput();
+        return back()->with(['alert-class' => 'red', 'message' => 'Sorry we didn\'t recognized your login details. Please check idno and password and try again!'])->withInput();
     }
 
     /**

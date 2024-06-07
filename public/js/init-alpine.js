@@ -45,15 +45,12 @@ function data() {
         togglePagesMenu() {
             this.isPagesMenuOpen = !this.isPagesMenuOpen;
         },
-        isModalOpen: false,
-        trapCleanup: null,
+        showModal: false,  // Ensure this is false by default
         openModal() {
-            this.isModalOpen = true;
-            this.trapCleanup = focusTrap(document.querySelector('#modal'));
+            this.showModal = true;
         },
         closeModal() {
-            this.isModalOpen = false;
-            this.trapCleanup();
+            this.showModal = false;
         },
     };
 }
