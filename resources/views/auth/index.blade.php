@@ -20,25 +20,30 @@
         <!-- Right Side - Login Form -->
         <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-12 bg-white">
             <div class="w-full max-w-md">
+                @if (session('message'))
+                    <x-forms.alert :status="session('status')" :message="session('message')" :alertClass="session('alert-class')" />
+                @endif
                 <h2 class="text-3xl font-bold mb-6 text-gray-800">Login</h2>
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required autofocus
+                        <label for="idno" class="block text-sm font-medium text-gray-700">ID Number</label>
+                        <input type="text" id="idno" name="idno" required autofocus
                             class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                        <x-forms.error name="idno"></x-forms.error>
                     </div>
                     <div class="mb-6">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <input type="password" id="password" name="password" required
                             class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none">
+                        <x-forms.error name="idno"></x-forms.error>
                     </div>
                     <div class="flex items-center justify-between mb-6">
                         <a href="" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your
                             password?</a>
                     </div>
                     <button type="submit"
-                        class="w-full py-2 px-4 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
+                        class="w-full py-2 px-4 bg-indigo-600 text-white font-bold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
                 </form>
             </div>
             <div class="mt-10 text-sm text-gray-600">&copy; MIS Office | {{ config('app.name') }}</div>
