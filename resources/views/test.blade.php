@@ -1,45 +1,18 @@
 <x-layout :title="'Test Title'">
-    <div class="container px-6 mx-auto grid">
-        <x-heading>Dashboard</x-heading>
-        <x-forms.field>
-            <x-forms.label for="name">Name</x-forms.label>
-            <x-forms.input name="name" id="name" placeholder="John Doe"></x-forms.input>
-            <x-forms.error name="name"></x-forms.error>
-        </x-forms.field>
 
-        <x-forms.field>
-            <x-forms.label for="name">Name</x-forms.label>
-            <x-forms.input name="name" id="name" placeholder="John Doe"></x-forms.input>
-        </x-forms.field>
-    </div>
 
     <div class="flex-1 p-4">
         <div class="flex justify-center items-center h-full">
             <!-- Centered form container -->
             <div class="w-full max-w-5xl p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <x-heading>Centered Form</x-heading>
-                <form action="#" method="POST">
-                    <x-forms.field>
-                        <x-forms.label for="name">Name</x-forms.label>
-                        <x-forms.input name="name" id="name" placeholder="John Doe"></x-forms.input>
-                        <x-forms.error name="name"></x-forms.error>
-                    </x-forms.field>
+                <x-forms.form action="#" method="POST">
 
-                    <x-forms.field>
-                        <x-forms.label for="name">Name</x-forms.label>
-                        <x-forms.input name="name" id="name" placeholder="John Doe"></x-forms.input>
-                    </x-forms.field>
-                    <x-forms.field>
-                        <x-forms.label for="name">Name</x-forms.label>
-                        <x-forms.input name="name" id="name" placeholder="John Doe"></x-forms.input>
-                        <x-forms.error name="name"></x-forms.error>
-                    </x-forms.field>
+                    <x-forms.input label="Title" name="title" placeholder="CEO" />
+                    <x-forms.input label="Title" name="title" placeholder="CEO" />
 
-                    <x-forms.field>
-                        <x-forms.label for="name">Name</x-forms.label>
-                        <x-forms.input name="name" id="name" placeholder="John Doe"></x-forms.input>
-                    </x-forms.field>
-                    <x-forms.field class="flex justify-center items-center">
+
+                    <x-forms.field class="flex justify-center items-center mt-5">
                         <x-forms.button>
                             Save Office
                             <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 ml-2">
@@ -51,7 +24,7 @@
                         </x-forms.button>
                     </x-forms.field>
 
-                </form>
+                </x-forms.form>
             </div>
         </div>
     </div>

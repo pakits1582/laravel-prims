@@ -1,5 +1,5 @@
-@props(['name'])
+@props(['error' => false])
 
-@error($name)
-    <p class="text-xs text-red-500 font-semibold mt-1 dark:text-red-400">{{ $message }}</p>
-@enderror
+@if ($error)
+    <p class="text-xs text-red-500 mt-1">{{ $error }}</p>
+@endif

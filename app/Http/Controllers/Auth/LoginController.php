@@ -32,7 +32,7 @@ class LoginController extends Controller
             return redirect()->intended('home');
         }
 
-        return back()->with(['alert-class' => 'red', 'message' => 'Sorry we didn\'t recognized your login details. Please check idno and password and try again!'])->withInput();
+        return back()->with(['status' => 'error', 'alert-class' => 'red', 'message' => 'Sorry we didn\'t recognized your login details. Please check idno and password and try again!'])->withInput();
     }
 
     /**

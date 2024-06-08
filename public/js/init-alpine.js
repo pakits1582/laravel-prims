@@ -34,6 +34,7 @@ function data() {
         closeNotificationsMenu() {
             this.isNotificationsMenuOpen = false;
         },
+
         isProfileMenuOpen: false,
         toggleProfileMenu() {
             this.isProfileMenuOpen = !this.isProfileMenuOpen;
@@ -41,10 +42,12 @@ function data() {
         closeProfileMenu() {
             this.isProfileMenuOpen = false;
         },
-        isPagesMenuOpen: false,
-        togglePagesMenu() {
-            this.isPagesMenuOpen = !this.isPagesMenuOpen;
-        },
+
+        // isPagesMenuOpen: false,
+        // togglePagesMenu() {
+        //     this.isPagesMenuOpen = !this.isPagesMenuOpen;
+        // },
+
         showModal: false,  // Ensure this is false by default
         openModal() {
             this.showModal = true;
