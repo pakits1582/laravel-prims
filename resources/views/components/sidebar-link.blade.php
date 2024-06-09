@@ -3,8 +3,9 @@
         class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
         @click="isMenuOpen = !isMenuOpen" aria-haspopup="true">
         <span class="inline-flex items-center">
-            {!! $link['icon'] !!}
-            <span class="ml-4">{{ $link['title'] }}</span>
+            {!! \App\Helpers\CustomHelper::menuCategoryIcon($link['category']) !!}
+
+            <span class="ml-4">{{ $link['category'] }}</span>
         </span>
         <svg :class="{ 'rotate-180': isMenuOpen }" class="w-4 h-4 transform transition-transform duration-150"
             aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">

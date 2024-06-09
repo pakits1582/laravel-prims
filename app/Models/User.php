@@ -47,6 +47,6 @@ class User extends Authenticatable
 
     public function accesses()
     {
-        return $this->hasMany(Useraccess::class, 'user_id', 'id');
+        return $this->hasMany(UserAccess::class, 'user_id', 'id');
     }
 }
