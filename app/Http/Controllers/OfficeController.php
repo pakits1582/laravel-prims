@@ -14,7 +14,9 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        //
+        $offices = Office::with(['headinfo'])->orderBy('code')->paginate(10);
+
+        return view('offices.index', compact('offices'));
     }
 
     /**
@@ -40,7 +42,7 @@ class OfficeController extends Controller
             ? ['status' => 'success', 'alert-class' => 'green', 'message' => 'Office successfully added!']
             : ['status' => 'error', 'alert-class' => 'red', 'message' => 'Duplicate entry, office already exists!'];
 
-        return Redirect::back()->with($message)->withInput();
+        return Redirect::back()->with($message);
     }
 
     /**

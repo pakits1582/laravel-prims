@@ -4,9 +4,11 @@
             SLC-PRIMS
         </a>
         <ul class="mt-6">
-            @foreach ($links as $link)
+            @forelse ($links ?? [] as $link)
                 <x-sidebar-link :link="$link" />
-            @endforeach
+            @empty
+                <li>No user access</li>
+            @endforelse
         </ul>
     </div>
 </aside>

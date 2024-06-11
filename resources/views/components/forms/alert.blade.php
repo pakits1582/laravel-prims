@@ -1,9 +1,16 @@
 @props(['status' => 'error', 'message' => '', 'alertClass' => 'red'])
 
 @if ($message)
-    <div class="p-4 mb-4 text-sm text-{{ $alertClass }}-500 rounded-lg bg-{{ $alertClass }}-50 dark:bg-{{ $alertClass }}-500 dark:text-{{ $alertClass }}-400"
+    <div class="flex items-center p-4 mb-4 text-sm text-{{ $alertClass }}-800 border border-{{ $alertClass }}-300 rounded-lg bg-{{ $alertClass }}-50 dark:bg-{{ $alertClass }}-800 dark:text-{{ $alertClass }}-400 dark:border-{{ $alertClass }}-800"
         role="alert">
-        <strong class="font-bold">{{ $status == 'success' ? 'Success!' : 'Error!' }}</strong>
-        <span class="block sm:inline">{{ $message }}</span>
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+            <span class="font-medium">{{ $status == 'success' ? 'Success!' : 'Error!' }}</span>
+            {{ $message }}
+        </div>
     </div>
 @endif
