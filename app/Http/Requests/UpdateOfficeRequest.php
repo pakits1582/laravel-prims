@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateOfficeRequest extends FormRequest
@@ -11,7 +12,7 @@ class UpdateOfficeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,9 @@ class UpdateOfficeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => ['required', 'string', 'max:255', Rule::unique('offices')->where(fn ($query) => $query->where('name', $this->name))->ignore($this->office->id)],
+            'name' => ['required', 'string', 'max:255', Rule::unique('offices')->where(fn ($query) => $query->where('code', $this->code))->ignore($this->office->id)],
+            'head_id' => 'nullable|sometimes|exists:employees,id',
         ];
     }
 }

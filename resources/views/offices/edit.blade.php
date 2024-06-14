@@ -1,4 +1,4 @@
-<x-layout :title="'Create Office'">
+<x-layout :title="'Edit Office'">
     <div class="flex-1 p-4">
         <div class="flex justify-center items-center h-full">
             <!-- Centered form container -->
@@ -6,17 +6,18 @@
                 @if (session('message'))
                     <x-forms.alert :status="session('status')" :message="session('message')" :alertClass="session('alert-class')" />
                 @endif
-                <x-heading>Add New Office</x-heading>
-                <form action="{{ route('offices.store') }}" method="POST">
+                <x-heading>Edit Office</x-heading>
+                <form action="{{ route('offices.update', $office->id) }}" method="POST">
                     @csrf
-                    <x-forms.input label="* Code" name="code" class="uppercase" />
-                    <x-forms.input label="* Name" name="name" class="uppercase" />
+                    @method('PUT')
+                    <x-forms.input label="* Code" name="code" class="uppercase" value="{{ $office->code ?? '' }}" />
+                    <x-forms.input label="* Name" name="name" class="uppercase" value="{{ $office->name ?? '' }}" />
                     <x-forms.select label="Head of Office" name="head_id">
                         <option value="">- Select Head of Office -</option>
                     </x-forms.select>
                     <x-forms.field class="flex justify-center items-center mt-5">
                         <x-forms.submit-button>
-                            Save Office
+                            Update Office
                         </x-forms.submit-button>
                     </x-forms.field>
                 </form>

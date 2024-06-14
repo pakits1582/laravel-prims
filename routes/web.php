@@ -27,7 +27,10 @@ Route::middleware(['auth', 'inaccess:offices'])
     ->group(function () {
         Route::get('/', 'index')->name('offices.index');
         Route::get('/create', 'create')->name('offices.create');
+        Route::get('/{office}/edit', 'edit')->name('offices.edit');
         Route::post('/', 'store')->name('offices.store');
+        Route::put('/{office}', 'update')->name('offices.update');
+        Route::delete('/{office}', 'destroy')->name('offices.destroy');
     });
 
 

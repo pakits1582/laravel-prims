@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Office;
 use App\Http\Requests\StoreOfficeRequest;
 use App\Http\Requests\UpdateOfficeRequest;
-use App\Models\Office;
-use Illuminate\Support\Facades\Redirect;
 
 class OfficeController extends Controller
 {
@@ -42,7 +41,7 @@ class OfficeController extends Controller
             ? ['status' => 'success', 'alert-class' => 'green', 'message' => 'Office successfully added!']
             : ['status' => 'error', 'alert-class' => 'red', 'message' => 'Duplicate entry, office already exists!'];
 
-        return Redirect::back()->with($message);
+        return redirect()->back()->with($message);
     }
 
     /**
@@ -50,7 +49,7 @@ class OfficeController extends Controller
      */
     public function show(Office $office)
     {
-        //
+        
     }
 
     /**
@@ -58,7 +57,7 @@ class OfficeController extends Controller
      */
     public function edit(Office $office)
     {
-        //
+        return view('offices.edit', compact('office'));
     }
 
     /**
@@ -66,7 +65,9 @@ class OfficeController extends Controller
      */
     public function update(UpdateOfficeRequest $request, Office $office)
     {
-        //
+        $office->update($request->validated());
+
+        return redirect()->back()->with(['status' => 'success', 'alert-class' => 'green', 'message' => 'Office successfully updated!']);
     }
 
     /**
@@ -74,6 +75,8 @@ class OfficeController extends Controller
      */
     public function destroy(Office $office)
     {
-        //
+        $office->delete();
+
+        return redirect()->route('offices.index')->with(['status' => 'success', 'alert-class' => 'green', 'message' => 'Office deleted successfully!']);
     }
 }

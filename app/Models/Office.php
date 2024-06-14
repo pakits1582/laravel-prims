@@ -12,22 +12,20 @@ class Office extends Model
 
     protected $fillable = ['code', 'name', 'head_id'];
 
-    public function uppercaseAttribute(string $attributeName): Attribute
+    protected function code(): Attribute
     {
         return new Attribute(
-            get: fn ($value, $attributes) => strtoupper($attributes[$attributeName]),
+            get: fn ($value) => $value ? strtoupper($value) : $value,
             set: fn ($value) => strtoupper($value)
         );
     }
 
-    public function code(): Attribute
+    protected function name(): Attribute
     {
-        return $this->uppercaseAttribute('code');
-    }
-
-    public function name(): Attribute
-    {
-        return $this->uppercaseAttribute('name');
+        return new Attribute(
+            get: fn ($value) => $value ? strtoupper($value) : $value,
+            set: fn ($value) => strtoupper($value)
+        );
     }
 
     public function headinfo()
